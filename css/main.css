@@ -1,0 +1,284 @@
+
+/* ------------- */
+/* --- Hoved --- */
+/* ------------- */
+
+body { 
+  display: grid;
+  grid-template-areas: 
+    "header header header header"
+    "leftside article article rightside"
+    "footer footer footer footer";
+  grid-template-rows: 1fr 2fr 1fr;  
+  grid-template-columns: 2fr 5fr 2fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  height: 65%;
+  margin: 0;
+  background: #eeeeee;
+  color: #B7B5B1;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  } 
+h1 {
+  padding-top: 0vh;
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #a18442;
+  z-index: 2;
+}
+h2 {
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #a18442;
+}
+p {
+  text-transform: capitalize;
+  color: #333333;
+  font-size: .7rem;
+}
+
+.insignia {
+  position: relative;
+  height: 100%;
+  z-index: 1;
+}
+
+header, footer, article, leftside, rightside {
+  padding: 1.2em;
+  }
+#pageHeader {
+  display: grid;
+  grid-template-areas: 
+    "insignia ntf ntf ."
+    "insignia nav nav .";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-area: header;
+  background: #1a1a1a;
+  box-shadow: 1px 1px 1px 1px;
+  z-index: 10;
+  }
+  #nav     {grid-area: nav; z-index: 2;}
+  #ntf      {grid-area: ntf;}
+  #insignia  {grid-area: insignia;}
+  
+#pageFooter {
+  grid-area: footer;
+  background: #1a1a1a;
+  box-shadow: 1px 1px 1px 1px;
+  }
+#mainArticle { 
+  grid-area: article;
+  background: #ffffff;  
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px;   
+  }
+.feed-articles {
+  background: #eeeeee;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-gap: 1rem;
+}
+.article {
+  background: #eeeeee;
+	padding: 1rem;
+  box-shadow: inset 1px 1px 1px 1px;
+  border-radius: 5px;
+}
+.feed-list {
+  background: #eeeeee;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  grid-gap: .3rem;
+}
+.feed {
+  background: #eeeeee;
+	padding: 0.1%;
+  box-shadow: inset 1px 1px 1px 1px;
+  border-radius: 5px;
+}
+#leftSide { 
+  grid-area: leftside; 
+  background: #ffffff; 
+  border-radius: 0px 5px 5px 0px;
+  box-shadow: 1px 1px 1px 1px;
+  }
+#rightSide { 
+  grid-area: rightside; 
+  background: #ffffff;
+  border-radius: 5px 0px 0px 5px; 
+  box-shadow: 1px 1px 1px 1px;
+  }
+.teamspeak {
+  background-color: #eeeeee;
+  width:auto;
+  height:100%;
+  padding:10px;
+  border-radius: 5px;
+  box-shadow: inset 1px 1px 1px 1px;
+}
+
+/* ------------------ */
+/* --- Responsiv  --- */
+/* ------------------ */
+
+@media all and (max-width: 575px) {
+  body { 
+    grid-template-areas: 
+      "header"
+      "article"
+      "rightside"
+      "leftside"
+      "footer";
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;  
+    grid-template-columns: 1fr;
+    width: 85%;
+    padding: 0% 2% 0% 0%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .feed-articles {
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #leftSide{
+    height: 50vh;
+  }
+  .teamspeak {
+    height:96%;
+    width: auto;
+  }
+  .feed-list {
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .gameserver {
+    max-width: 89vw;
+    overflow-x: scroll;
+  }
+}
+@media (min-width: 576px) and (max-width: 1300px) {
+  body { 
+    grid-template-areas: 
+      "header header header"
+      "article article article"
+      "leftside rightside rightside"
+      "footer footer footer";
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    padding: 0% 1% 0% 0%; 
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .feed-articles {
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #leftSide{
+    height: 50vh;
+  }
+  .teamspeak {
+    height:96%;
+  }
+  .feed-list {
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----------- */
+/* --- UX  --- */
+/* ----------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(138, 138, 138); 
+  box-shadow: inset 0 0 5px #414141; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a18442; 
+}
+.scrollable {  
+  overflow: auto;
+}
+.active-marker:hover{
+  -webkit-filter: sepia(50%);
+  filter: sepia(50%);
+  -ms-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+.center {
+  margin: auto;
+  z-index: 2;
+}
+
+/* ------------- */
+/* --- Meny  --- */
+/* ------------- */
+
+.dropbtn {
+  background-color: #1a1a1a;
+  color: #a18442;
+  width: 9rem;
+  font-size: .9rem;
+  border-radius: 5px 5px 0px 0px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase; 
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #eeeeee;
+  width: 9rem;
+  font-size: .8rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #a18442;
+  color: #eeeeee;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #a18442;
+  color: #eeeeee;
+}
